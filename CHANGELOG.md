@@ -7,7 +7,9 @@ The format is based on [keepachangelog.com]
 
 ### Added
 
+- Connect [test API]
 - Vue.js 3 init setup powered by `TypeScript`. Contains libraries for: 
 `state`, `router`, `unit tests`, `static code analisys`, `css preprocessor`
 
 [keepachangelog.com]:https://keepachangelog.com/en/1.0.0/
+[test API]:https://github.com/NaMax66/test-api

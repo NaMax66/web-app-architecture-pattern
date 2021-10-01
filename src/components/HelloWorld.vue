@@ -1,9 +1,17 @@
 <template>
   <div class="hello">
-    <button @click="test">
-      Test API
+    <button @click="receiveGoods('books')">
+      receive books
     </button>
-    <h3>test response: {{ response.name }}</h3>
+    <button @click="receiveGoods('trinkets')">
+      receive trinkets
+    </button>
+    <button @click="receiveGoods('tShirts')">
+      receive tShirts
+    </button>
+    <ul>
+      <li v-for="item in response.slice(0, 4)" :key="item.id">{{ item.title }}</li>
+    </ul>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
@@ -39,19 +47,20 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import getTest from '@/api/test.api';
+import getGoods from '@/api/goods.api';
+import { GoodGroup } from '@/specification/api/GoodGroup';
 
 export default defineComponent({
   name: 'HelloWorld',
   data: () => ({
-    response: { name: 'name no set yet...' },
+    response: [{ id: 1, title: 'Not set yet..' }],
   }),
   props: {
     msg: String,
   },
   methods: {
-    async test() {
-      this.response = await getTest() as { name: string };
+    async receiveGoods(group: GoodGroup) {
+      this.response = await getGoods(group) as { id: number, title: string}[];
     },
   },
 });

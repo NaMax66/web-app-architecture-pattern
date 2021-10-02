@@ -47,7 +47,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import getGoods from '@/api/goods.api';
+import goodsApi from '@/api/goods.api';
 import { GoodGroup } from '@/specification/api/GoodGroup';
 
 export default defineComponent({
@@ -60,7 +60,7 @@ export default defineComponent({
   },
   methods: {
     async receiveGoods(group: GoodGroup) {
-      this.response = await getGoods(group) as { id: number, title: string}[];
+      this.response = await goodsApi.getGoods(group) as { id: number, title: string}[];
     },
   },
 });

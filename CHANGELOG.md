@@ -7,6 +7,7 @@ The format is based on [keepachangelog.com]
 
 ### Added
 
+- Dependency inversion pattern for httpClient
 - Unit test for `goods.api`
 - Routes for goods
 - Connect [test API]

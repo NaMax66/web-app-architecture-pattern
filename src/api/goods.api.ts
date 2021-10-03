@@ -6,7 +6,8 @@ import { routes } from '@/specification/api/GoodRoutes';
 You could easy test api */
 import HttpClient from '@/api/httpClient/httpClent';
 import FetchHttpClient from '@/api/httpClient/FetchHttpClient';
-// import AxiosHttpClient from '@/api/httpClient/AxiosHttpClient';
+import AxiosHttpClient from '@/api/httpClient/AxiosHttpClient';
+import XMLHttpRequestHttpClient from '@/api/httpClient/XMLHttpRequestHttpClient';
 
 const DEFAULT_HEADERS = {
   'Content-type': 'application/json; charset=UTF-8',
@@ -35,4 +36,4 @@ export class GoodsApi {
 }
 
 /* question: are headers depends on particular request? */
-export default new GoodsApi(new FetchHttpClient(), BASE_API_URL);
+export default new GoodsApi(new XMLHttpRequestHttpClient(), BASE_API_URL);

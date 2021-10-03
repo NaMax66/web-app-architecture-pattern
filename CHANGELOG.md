@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file. 
 The format is based on [keepachangelog.com]
 
-## Unreleased
+## [0.0.1] 2021-10-03
 
 ### Added
 
@@ -16,3 +16,4 @@ The format is based on [keepachangelog.com]
 
 [keepachangelog.com]:https://keepachangelog.com/en/1.0.0/
 [test API]:https://github.com/NaMax66/test-api
+[0.0.1]: https://github.com/NaMax66/web-app-architecture-pattern/releases/tag/v0.0.1

@@ -17,6 +17,7 @@ module.exports = {
     'import/prefer-default-export': 'off',
     semi: 'warn',
     'comma-dangle': 'warn',
+    'no-trailing-spaces': 'off'
   },
   overrides: [
     {

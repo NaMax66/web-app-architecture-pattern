@@ -52,7 +52,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import goodsApi from '@/api/goods.api';
+import goodsApi from '@/api/goods';
 import { GoodGroup } from '@/specification/api/GoodGroup';
 
 export default defineComponent({

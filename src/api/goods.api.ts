@@ -1,8 +1,12 @@
 import { BASE_API_URL } from '@/app-global-settings';
 import { GoodGroup } from '@/specification/api/GoodGroup';
 import { routes } from '@/specification/api/GoodRoutes';
+
+/* explanation: you could use both transport without changing api realisation.
+You could easy test api */
 import HttpClient from '@/api/httpClient/httpClent';
-import FetchClient from '@/api/httpClient/FetchHttpClient';
+import FetchHttpClient from '@/api/httpClient/FetchHttpClient';
+// import AxiosHttpClient from '@/api/httpClient/AxiosHttpClient';
 
 const DEFAULT_HEADERS = {
   'Content-type': 'application/json; charset=UTF-8',
@@ -21,7 +25,7 @@ export class GoodsApi {
     headers = DEFAULT_HEADERS,
   ) {
     this.client = client;
-    this.baseUrl = baseUrl
+    this.baseUrl = baseUrl;
     this.headers = headers;
   }
 
@@ -30,4 +34,5 @@ export class GoodsApi {
   }
 }
 
-export default new GoodsApi(new FetchClient(), BASE_API_URL);
+/* question: are headers depends on particular request? */
+export default new GoodsApi(new FetchHttpClient(), BASE_API_URL);

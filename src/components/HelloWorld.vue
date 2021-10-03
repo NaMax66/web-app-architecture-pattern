@@ -67,7 +67,8 @@ export default defineComponent({
   methods: {
     async receiveGoods(group: GoodGroup) {
       this.isListLoading = true;
-      this.response = await goodsApi.getGoods(group) as { id: number, title: string}[];
+      const test = await goodsApi.getGoods(group) as { id: number, title: string}[];
+      console.log(test)
       this.isListLoading = false;
     },
   },

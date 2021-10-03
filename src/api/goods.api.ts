@@ -1,36 +1,27 @@
 import { BASE_API_URL } from '@/app-global-settings';
 import { GoodGroup } from '@/specification/api/GoodGroup';
 import { routes } from '@/specification/api/GoodRoutes';
+import HttpClient from '@/api/httpClient/httpClent';
+import FetchClient from '@/api/httpClient/FetchHttpClient';
 
 const DEFAULT_HEADERS = {
   'Content-type': 'application/json; charset=UTF-8',
 } as const;
 
-abstract class Client {
-  abstract read(url: string): Promise<unknown>
-}
-
-class FetchClient implements Client {
-  read = async (url: string) => {
-    const res = await fetch(url);
-    return res.json();
-  }
-}
-
 export class GoodsApi {
-  private client: Client;
+  private client: HttpClient;
 
-  private readonly baseUrl: string;
+  private readonly baseUrl: string
 
-  private headers: Record<string, unknown>;
+  private headers: Record<string, unknown>
 
   constructor(
-    client: Client,
+    client: HttpClient,
     baseUrl: string,
     headers = DEFAULT_HEADERS,
   ) {
     this.client = client;
-    this.baseUrl = baseUrl;
+    this.baseUrl = baseUrl
     this.headers = headers;
   }
 

@@ -7,6 +7,9 @@ The format is based on [keepachangelog.com]
 
 ### Added
 
+- Dependency inversion pattern for httpClient
+- Unit test for `goods.api`
+- Routes for goods
 - Connect [test API]
 - Vue.js 3 init setup powered by `TypeScript`. Contains libraries for: 
 `state`, `router`, `unit tests`, `static code analisys`, `css preprocessor`

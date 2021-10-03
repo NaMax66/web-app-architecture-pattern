@@ -1,9 +1,22 @@
 <template>
   <div class="hello">
-    <button @click="test">
-      Test API
+    <button @click="receiveGoods('books')">
+      receive books
     </button>
-    <h3>test response: {{ response.name }}</h3>
+    <button @click="receiveGoods('trinkets')">
+      receive trinkets
+    </button>
+    <button @click="receiveGoods('tShirts')">
+      receive tShirts
+    </button>
+    <ul>
+      <template v-if="!isListLoading">
+        <li v-for="item in response.slice(0, 4)" :key="item.id">{{ item.title }}</li>
+      </template>
+      <template v-else>
+        List is loading...
+      </template>
+    </ul>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
@@ -39,19 +52,23 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import getTest from '@/api/test.api';
+import goodsApi from '@/api/goods';
+import { GoodGroup } from '@/specification/api/GoodGroup';
 
 export default defineComponent({
   name: 'HelloWorld',
   data: () => ({
-    response: { name: 'name no set yet...' },
+    response: [{ id: 1, title: 'Not set yet..' }],
+    isListLoading: false,
   }),
   props: {
     msg: String,
   },
   methods: {
-    async test() {
-      this.response = await getTest() as { name: string };
+    async receiveGoods(group: GoodGroup) {
+      this.isListLoading = true;
+      this.response = await goodsApi.getGoods(group) as { id: number, title: string}[];
+      this.isListLoading = false;
     },
   },
 });

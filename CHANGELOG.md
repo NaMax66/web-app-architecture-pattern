@@ -7,6 +7,7 @@ The format is based on [keepachangelog.com]
 
 ### Added
 
+- Unit test for `goods.api`
 - Routes for goods
 - Connect [test API]
 - Vue.js 3 init setup powered by `TypeScript`. Contains libraries for: 

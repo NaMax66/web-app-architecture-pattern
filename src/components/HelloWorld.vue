@@ -10,11 +10,16 @@
       receive tShirts
     </button>
     <ul>
-      <template v-if="!isListLoading">
-        <li v-for="item in response.slice(0, 4)" :key="item.id">{{ item.title }}</li>
+      <template v-if="!isListLoading && !!response.length">
+        <li>Not set yet</li>
+      </template>
+      <template v-else-if="isListLoading">
+        <li>
+          List is loading...
+        </li>
       </template>
       <template v-else>
-        List is loading...
+        <li v-for="(item, index) in response.slice(0, 4)" :key="index">{{ item.title }}</li>
       </template>
     </ul>
     <p>
@@ -54,11 +59,12 @@
 import { defineComponent } from 'vue';
 import goodsApi from '@/api/goods';
 import { GoodGroup } from '@/specification/api/GoodGroup';
+import { Good } from '@/specification/DTO/Good';
 
 export default defineComponent({
   name: 'HelloWorld',
   data: () => ({
-    response: [{ id: 1, title: 'Not set yet..' }],
+    response: [] as Good[],
     isListLoading: false,
   }),
   props: {
@@ -67,7 +73,7 @@ export default defineComponent({
   methods: {
     async receiveGoods(group: GoodGroup) {
       this.isListLoading = true;
-      this.response = await goodsApi.getGoods(group) as { id: number, title: string}[];
+      this.response = await goodsApi.getGoods(group);
       this.isListLoading = false;
     },
   },

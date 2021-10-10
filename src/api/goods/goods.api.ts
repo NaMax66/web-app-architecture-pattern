@@ -2,6 +2,8 @@ import { GoodGroup } from '@/specification/api/GoodGroup';
 import { routes } from '@/specification/api/GoodRoutes';
 
 import HttpClient from '@/api/httpClient/httpClient';
+import { Good } from '@/specification/DTO/Good';
+import { isGood, isGoodArray } from '@/store/modules/goods/validator';
 
 /* question: is it necessary to have default headers here? */
 const DEFAULT_HEADERS = {
@@ -31,7 +33,10 @@ export default class {
    * @param group
    */
 
-  getGoods(group: GoodGroup): Promise<unknown> {
-    return this.client.read(`${this.baseUrl}/${routes[group]}`);
+  async getGoods(group: GoodGroup): Promise<Good[]> {
+    const result = await this.client.read(`${this.baseUrl}/${routes[group]}`);
+    console.log(result);
+
+    return isGoodArray(result) ? result : [];
   }
 }

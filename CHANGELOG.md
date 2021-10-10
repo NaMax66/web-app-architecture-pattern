@@ -9,6 +9,10 @@ The format is based on [keepachangelog.com]
 
 - Update npm packages
 
+### Added
+
+- TS Types to `store` module
+
 ## [0.0.1] 2021-10-03
 
 ### Added

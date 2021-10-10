@@ -9,7 +9,7 @@ module.exports = {
     '@vue/typescript/recommended',
   ],
   parserOptions: {
-    "parser": "@typescript-eslint/parser"
+    parser: '@typescript-eslint/parser',
   },
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
@@ -17,7 +17,7 @@ module.exports = {
     'import/prefer-default-export': 'off',
     semi: 'warn',
     'comma-dangle': 'warn',
-    'no-trailing-spaces': 'off'
+    'no-trailing-spaces': 'off',
   },
   overrides: [
     {

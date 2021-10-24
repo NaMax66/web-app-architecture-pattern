@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file. 
 The format base on [keepachangelog.com]
 
-### Unreleased
+### [0.0.3] 2021-10-24
 
 ### Changed
 
@@ -39,3 +39,4 @@ The format base on [keepachangelog.com]
 
 [0.0.1]: https://github.com/NaMax66/web-app-architecture-pattern/releases/tag/v0.0.1
 [0.0.2]: https://github.com/NaMax66/web-app-architecture-pattern/compare/v0.0.1...v0.0.2
+[0.0.2]: https://github.com/NaMax66/web-app-architecture-pattern/compare/v0.0.2...v0.0.3

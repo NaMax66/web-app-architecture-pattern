@@ -10,7 +10,7 @@
       receive tShirts
     </button>
     <ul>
-      <template v-if="!isListLoading && !!response.length">
+      <template v-if="!isListLoading && !response.length">
         <li>Not set yet</li>
       </template>
       <template v-else-if="isListLoading">

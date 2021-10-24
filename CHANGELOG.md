@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file. 
 The format base on [keepachangelog.com]
 
+### Unreleased
+
+### Changed
+
+- Update npm packages
+
+### Fixed
+
+- Fix list loading
+
 ## [0.0.2] 2021-10-10
 
 ### Changed

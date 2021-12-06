@@ -1,3 +1,5 @@
 export default abstract class HttpClient {
-  abstract read(url: string): Promise<unknown>
+  abstract get(url: string): Promise<unknown>
+
+  abstract post(url: string, params: Record<string, unknown>): Promise<unknown>
 }

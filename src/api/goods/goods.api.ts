@@ -34,7 +34,7 @@ export default class {
    */
 
   async getGoods(group: GoodGroup): Promise<Good[]> {
-    const result = await this.client.read(`${this.baseUrl}/${routes[group]}`);
+    const result = await this.client.get(`${this.baseUrl}/${routes[group]}`);
 
     return isGoodArray(result) ? result : [];
   }

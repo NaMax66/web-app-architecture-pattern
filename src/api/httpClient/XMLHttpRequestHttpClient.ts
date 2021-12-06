@@ -13,4 +13,10 @@ export default class AxiosHttpClient implements HttpClient {
     };
     xhr.send();
   })
+
+  /* todo implement */
+  // eslint-disable-next-line class-methods-use-this
+  post(url: string, params: Record<string, unknown>): Promise<unknown> {
+    return Promise.resolve(undefined);
+  }
 }

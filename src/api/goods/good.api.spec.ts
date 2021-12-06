@@ -3,7 +3,7 @@ import httpClient from '@/api/httpClient/httpClient';
 import { routes } from '@/specification/api/GoodRoutes';
 
 const mockClient:httpClient = {
-  read(url: string): Promise<unknown> {
+  get(url: string): Promise<unknown> {
     return new Promise<unknown>((resolve) => resolve(`params: ${url}`));
   },
 };
@@ -19,7 +19,7 @@ describe('goods.api', () => {
 
   describe('getGoods API method', () => {
     it('should call "read" method of httpClient', () => {
-      const spy = jest.spyOn(mockClient, 'read');
+      const spy = jest.spyOn(mockClient, 'get');
 
       api.getGoods('books');
 
@@ -27,7 +27,7 @@ describe('goods.api', () => {
     });
 
     it('should construct an url depends on goods group and pass it to httpClient', () => {
-      const spy = jest.spyOn(mockClient, 'read');
+      const spy = jest.spyOn(mockClient, 'get');
       const goodGroup = 'tShirts';
 
       api.getGoods(goodGroup);
